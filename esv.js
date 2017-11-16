@@ -62,7 +62,14 @@ fetch(myRequest)
     .then(resp => {
         return resp.json();
     }).then(json => {
-        console.log(json);
+        var passages= json.passages;
+        passages.forEach(passage => {
+            var container= document.getElementById('container');
+            var li = document.createElement('li');
+            li.textContent= passage;
+            container.appendChild(li);
+            
+        });
     });
 
 //var promises = urls.map(url => fetch(myRequest).then(y=> y.text()));
